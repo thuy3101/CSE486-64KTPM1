@@ -15,49 +15,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .tbl-data {
-            width: 100%;
-            border: 1px solid #ddd;
-        }
-        .tbl-data th{
-            text-align: left;
-        }
-        .tbl-data tr{
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        .tbl-data td{
-            width: 20%;
-        }
-        .img {
-            width: 50px;
-        }
-    </style>
+    <title></title>
 </head>
 <body>
-    <h1 style="text-align: center;">QUẢN LÝ HOA</h1><br>
-    <a href="add.php" style="text-decoration: none; color: white; background-color: green; padding: 8px;">Thêm mới</a><br>
-    <table class="tbl-data">
-        <tr>
-            <th><h3>Tên</h3></th>
-            <th><h3>Mô tả</h3></th>
-            <th><h3>Hình ảnh</h3></th>
-            <th><h3>Sửa</h3></th>
-            <th><h3>Xóa</h3></th>
-        </tr>
     <?php 
         foreach ($_SESSION['flower'] as $flower) {
+            echo "<h4> {$flower['stt']}. {$flower['name']} </h4>";
+            echo "<p> {$flower['description']} </p>";
+            echo "<img src='{$flower['image']}' alt='{$flower['name']}'>";
+        }
     ?>
-        <tr>
-            <td><?php echo $flower['name'] ?></td>
-            <td><?php echo $flower['description']?></td>
-            <td><img style="width: 100px" src="<?php echo $flower['image'] ?>" alt=""></td>
-            <td><a href="edit.php?this_id=<?php echo $flower['stt'] ?>">Sửa</a></td>
-            <td><a href="delete.php?this_id=<?php echo $flower['stt'] ?>">Xóa</a></td>
-        </tr>
-    <?php } ?>
-    </table>
 </body>
 </html>
